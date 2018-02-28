@@ -16,7 +16,8 @@ const networkInterface = createBatchingNetworkInterface({
 })
 
 // [jwc] const wsClient = new SubscriptionClient('__SUBSCRIPTION_API_ENDPOINT__', {
-const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cje6dlnnc1uio0164y5biv8p9', {
+// const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cje6dlnnc1uio0164y5biv8p9', {
+const wsClient = new SubscriptionClient('wss://subscriptions.us-west-2.graph.cool/v1/cje6dlnnc1uio0164y5biv8p9', {
   reconnect: true,
   connectionParams: {
     authToken: localStorage.getItem(GC_AUTH_TOKEN)
