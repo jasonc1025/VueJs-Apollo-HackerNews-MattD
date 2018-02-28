@@ -10,11 +10,13 @@ import { GC_USER_ID, GC_AUTH_TOKEN } from './constants/settings'
 
 Vue.config.productionTip = false
 
+// [jwc] uri: '__SIMPLE_API_ENDPOINT__'
 const networkInterface = createBatchingNetworkInterface({
   uri: 'https://api.graph.cool/simple/v1/cje6dlnnc1uio0164y5biv8p9'
 })
 
-const wsClient = new SubscriptionClient('__SUBSCRIPTION_API_ENDPOINT__', {
+// [jwc] const wsClient = new SubscriptionClient('__SUBSCRIPTION_API_ENDPOINT__', {
+const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cje6dlnnc1uio0164y5biv8p9', {
   reconnect: true,
   connectionParams: {
     authToken: localStorage.getItem(GC_AUTH_TOKEN)
