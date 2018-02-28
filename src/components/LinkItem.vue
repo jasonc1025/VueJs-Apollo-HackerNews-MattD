@@ -60,7 +60,13 @@
       },
       updateStoreAfterVote (store, createVote, linkId) {
         const data = store.readQuery({
-          query: ALL_LINKS_QUERY
+          query: ALL_LINKS_QUERY,
+          // [jwc]+5: https://stackoverflow.com/questions/46349512/apollo-client-error-cant-find-field-alllinks-on-object-root-query
+          variables: {
+            first: 5,
+            skip: 0,
+            orderBy: 'createdAt_DESC'
+          }
         })
 
         const votedLink = data.allLinks.find(link => link.id === linkId)
